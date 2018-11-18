@@ -1,0 +1,64 @@
+name:                tabula-client
+version:             0.1.0.1
+github:              mbg/tabula-client
+license:             MIT
+author:              Michael B. Gale
+maintainer:          m.gale@warwick.ac.uk
+copyright:           2018 Michael B. Gale
+
+extra-source-files:
+- README.md
+
+# Metadata used when publishing your package
+synopsis:            Command-line client for Tabula
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/mbg/tabula#readme>
+
+dependencies:
+- base                    #  >= 4.7 && < 5
+- bytestring              #  >= 0.10 && < 0.11
+- text                    #  >= 1.2 && < 1.3
+- time                    #  >= 1.6 && < 1.7
+- iso8601-time            #  >= 0.1 && < 0.2
+- unordered-containers    #  >= 0.2 && < 0.3
+- aeson                   #  >= 1.1 && < 1.2
+- http-client             #  >= 0.5 && < 0.6
+- http-client-tls
+- conduit                 #  >= 1.2 && < 1.3
+- conduit-extra           #  >= 1.1 && < 1.2
+- http-conduit            #  >= 2.2 && < 2.3
+- servant                 #  >= 0.11 && < 0.12
+- servant-client          #  >= 0.11 && < 0.12
+- uuid-types              #  >= 1.0 && < 1.1
+- mtl                     #  >= 2.2 && < 2.3
+- directory
+- optparse-applicative    #  >= 0.13 && < 0.14
+- extra                   #  >= 1.5 && < 1.6
+- shelly                  #  >= 1.6 && < 1.7
+- filepath                #  >= 1.4 && < 1.5
+
+default-extensions:
+- OverloadedStrings
+- FlexibleInstances
+- FlexibleContexts
+- DeriveGeneric
+- DataKinds
+- TypeOperators
+- ScopedTypeVariables
+- RecordWildCards
+- GeneralizedNewtypeDeriving
+
+executables:
+  tabula-client:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - tabula

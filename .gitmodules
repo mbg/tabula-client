@@ -1,0 +1,3 @@
+[submodule "tabula"]
+	path = tabula
+	url = https://github.com/mbg/tabula
