@@ -24,8 +24,10 @@ import Warwick.Tabula.Types
 data AppConfig
     = Help
     | DownloadSubmissions {
-        cfgModuleCode :: ModuleCode,
-        cfgUnpack     :: Bool
+        cfgModuleCode   :: ModuleCode,
+        cfgAcademicYear :: String,
+        cfgUnpack       :: Bool,
+        cfgOnlyPDF      :: Bool
     }
     | Tutees {}
 
@@ -37,14 +39,17 @@ mc = ModuleCode . BS.packChars <$> str
 downloadSubmissionsP :: Parser AppConfig
 downloadSubmissionsP =
     DownloadSubmissions <$> argument mc ( metavar "MODULE"
-                                       <> help "The module code (e.g. cs256)"
+                                       <> help "The module code (e.g. cs141)"
                                         )
+                        <*> strOption (long "year" <> help "The academic year")
                         <*> switch ( long "unpack"
                                   <> help "Unpack submissions automatically."
                                    )
+                        <*> switch (long "only-pdf"
+                                  <> help "Only download PDFs")
 
 tuteesP :: Parser AppConfig
-tuteesP = pure Tutees 
+tuteesP = pure Tutees
 
 appConfigP :: Parser AppConfig
 appConfigP =

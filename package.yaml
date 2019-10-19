@@ -40,6 +40,7 @@ dependencies:
 - extra                   #  >= 1.5 && < 1.6
 - shelly                  #  >= 1.6 && < 1.7
 - filepath                #  >= 1.4 && < 1.5
+- ascii-progress
 
 default-extensions:
 - OverloadedStrings
@@ -61,4 +62,4 @@ executables:
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
-    - tabula
+    - uow-apis
